@@ -7,7 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
-
+use DB;
 class AuthController extends Controller
 {
     /*
@@ -50,12 +50,13 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
+            'team'=>'required|unique:empresas,nombre',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
             'terms' => 'required',
         ]);
     }
-
+ 
     /**
      * Create a new user instance after a valid registration.
      *
@@ -64,10 +65,15 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+            $idempresa = DB::table('empresas')->insertGetId(
+                ['nombre' => $data['team']]
+            );
+            return User::create([
+            'id_empresa'=>$idempresa,
+            'perfiles'=>'1,2,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20',
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-        ]);
+        ]); 
     }
 }
