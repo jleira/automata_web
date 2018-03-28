@@ -68,6 +68,7 @@ Route::group(['prefix' => 'api'], function () {
 //materiales
 Route::get('materiales','MaterialController@index');
 Route::get('material/nuevo', 'MaterialController@nuevo');
+Route::post('material/nuevo/registrar', 'MaterialController@nuevomaterial');
 Route::get('material/nuevacategoria', 'MaterialController@categorias');
 Route::post('material/nuevacategoria', 'MaterialController@nuevacategoria');
 Route::post('material/editarcategoria', 'MaterialController@editarcategoria');

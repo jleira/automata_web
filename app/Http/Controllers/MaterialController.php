@@ -20,7 +20,7 @@ class MaterialController extends Controller
     {
         $this->middleware('auth');
     }
-
+ 
     /**
      * Show the application dashboard.
      *
@@ -40,7 +40,15 @@ class MaterialController extends Controller
     }else{
         return view('errors.401');
     }
-
+    }
+    public function nuevomaterial(Request $request)
+    {
+        $precio=intval(str_replace($request['precio'],'.',''));
+        $this->validate($request, [
+            'nombre' => 'required',
+    ]);
+         $request['precio']=intval($precio);
+        return var_dump($request->all());
     }
     public function categorias()
     {
@@ -50,6 +58,7 @@ class MaterialController extends Controller
 
     public function nuevacategoria(Request $request)
     {
+
     $this->validate($request, [
             'nombre' => 'required',
     ]);
