@@ -23,36 +23,36 @@
             <!-- Optionally, you can add icons to the links -->
             <li class="{{active('home')}}"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
             <li class="{{active('contacto')}}" class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.contact') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.contact') }}s</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                <li class="{{active('contactos')}}"><a href="{{url('contactos')}}">{{ trans('adminlte_lang::message.all') }}</a></li>
-                <li class="{{active('contacto/cliente')}}"><a href="{{url('contacto/clientes')}}">{{ trans('adminlte_lang::message.client') }}s</a></li>
-                <li class="{{active('contacto/proveedores')}}"><a href="{{url('contacto/proveedores')}}">{{ trans('adminlte_lang::message.provider') }}{{s()}}</a></li>
-                <li class="{{active('contacto/nuevo')}}"><a href="{{url('contacto/nuevo')}}">{{ trans('adminlte_lang::message.new') }}</a></li>                    
+                <li class="{{active('contactos')}}"><a href="{{url('contactos')}}">{{ trans('a.todos') }}</a></li>
+                <li class="{{active('contacto/cliente')}}"><a href="{{url('contacto/clientes')}}">{{ trans('a.client') }}s</a></li>
+                <li class="{{active('contacto/proveedores')}}"><a href="{{url('contacto/proveedores')}}">{{ trans('a.provider') }}{{s()}}</a></li>
+                <li class="{{active('contacto/nuevo')}}"><a href="{{url('contacto/nuevo')}}">{{ trans('a.nuevo') }}</a></li>                    
                 </ul>
             </li>
             <li class="{{active('bodega')}}" class="treeview">
-                <a href="#"><i class='fa fa-industry'></i> <span>{{ trans('adminlte_lang::message.cellar') }}s</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-industry'></i> <span>{{ trans('a.bodega') }}s</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                <li class="{{active('bodegas')}}"><a href="{{url('bodegas')}}">{{ trans('adminlte_lang::message.all') }}</a></li>
-                <li class="{{active('bodega/nuevo')}}"><a href="{{url('bodega/nuevo')}}">{{ trans('adminlte_lang::message.new') }}</a></li>                    
+                <li class="{{active('bodegas')}}"><a href="{{url('bodegas')}}">{{ trans('a.todos') }}</a></li>
+                <li class="{{active('bodega/nuevo')}}"><a href="{{url('bodega/nuevo')}}">{{ trans('a.nuevo') }}</a></li>                    
                 </ul>
             </li>
 
             <li class="{{active('producto')}}" class="treeview">
                 <a href="#"><i class='fa fa-plus'></i> <span>{{ trans('adminlte_lang::message.product') }}s</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                <li class="{{active('productos')}}"><a href="{{url('productos')}}">{{ trans('adminlte_lang::message.all') }}</a></li>
-                <li class="{{active('producto/nuevo')}}"><a href="{{url('producto/nuevo')}}">{{ trans('adminlte_lang::message.new') }}</a></li>                    
+                <li class="{{active('productos')}}"><a href="{{url('productos')}}">{{ trans('a.todos') }}</a></li>
+                <li class="{{active('producto/nuevo')}}"><a href="{{url('producto/nuevo')}}">{{ trans('a.nuevo') }}</a></li>                    
                 </ul>
             </li>
 
             <li class="{{active('material')}}" class="treeview">
                 <a href="#"><i class='fa fa-plus'></i> <span>{{ trans('adminlte_lang::message.materials') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                <li class="{{active('materiales')}}"><a href="{{url('materiales')}}">{{ trans('adminlte_lang::message.all') }}</a></li>
-                <li class="{{active('material/nuevo')}}"><a href="{{url('material/nuevo')}}">{{ trans('adminlte_lang::message.new') }}</a></li>
-                <li class="{{active('material/nuevacategoria')}}"><a href="{{url('material/nuevacategoria')}}">{{ trans('adminlte_lang::message.category') }}</a></li>
+                <li class="{{active('materiales')}}"><a href="{{url('materiales')}}">{{ trans('a.todos') }}</a></li>
+                <li class="{{active('material/nuevo')}}"><a href="{{url('material/nuevo')}}">{{ trans('a.nuevo') }}</a></li>
+                <li class="{{active('material/nuevacategoria')}}"><a href="{{url('material/nuevacategoria')}}">{{ trans('a.categoria') }}</a></li>
                 
                 </ul>
             </li>
