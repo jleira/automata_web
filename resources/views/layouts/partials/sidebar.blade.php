@@ -48,7 +48,7 @@
             </li>
 
             <li class="{{active('material')}}" class="treeview">
-                <a href="#"><i class='fa fa-plus'></i> <span>{{ trans('adminlte_lang::message.materials') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
+                <a href="#"><i class='fa fa-plus'></i> <span>{{ trans('a.material') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
                 <li class="{{active('materiales')}}"><a href="{{url('materiales')}}">{{ trans('a.todos') }}</a></li>
                 <li class="{{active('material/nuevo')}}"><a href="{{url('material/nuevo')}}">{{ trans('a.nuevo') }}</a></li>

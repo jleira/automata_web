@@ -5,7 +5,7 @@
 @endsection
 
 @section('htmlheader_title')
-{{ trans('adminlte_lang::message.material') }}s
+{{ trans('a.material') }}s
 @endsection
 
 
@@ -16,7 +16,7 @@
 	<div class="col-lg-12">
 		<div class="panel panel-primary">
 		<div class="panel-body">
-	<a href="{{url('material/nuevo')}}" class="btn btn-primary"><i class="fa fa-plus"></i> {{trans('adminlte_lang::message.new')}} {{trans('adminlte_lang::message.material')}}</a>			
+	<a href="{{url('material/nuevo')}}" class="btn btn-primary"><i class="fa fa-plus"></i> {{trans('a.nuevo')}} {{trans('a.material')}}</a>			
 		</div>
 		</div>
 
@@ -26,11 +26,11 @@
 				<table id="tabla" class="table table-bordered table-striped">
 					<thead>
 						<tr>
-							<th>{{trans('adminlte_lang::message.name')}}</th>
-							<th>{{trans('adminlte_lang::message.reference')}}</th>
-							<th>{{trans('adminlte_lang::message.price')}} </th>
-							<th>{{trans('adminlte_lang::message.description')}}</th>
-							<th>{{trans('adminlte_lang::message.action')}}</th>
+							<th>{{trans('a.nombre')}}</th>
+							<th>{{trans('a.referencia')}}</th>
+							<th>{{trans('a.precio')}} </th>
+							<th>{{trans('a.descripcion')}}</th>
+							<th>{{trans('a.accion')}}</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -66,7 +66,7 @@
 <script src="{{ url('public/plugins/datatables/dataTables.bootstrap.min.js')}}"></script>
 <script type="text/javascript">
 
-{{datatables('#tabla',trans('adminlte_lang::message.material'))}}
+{{datatables('#tabla',trans('a.material'))}}
 
 </script>
 

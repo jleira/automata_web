@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-{{ trans('adminlte_lang::message.new') }} {{ trans('adminlte_lang::message.material') }}
+{{ trans('adminlte_lang::message.new') }} {{ trans('a.material') }}
 @endsection
 
 @section('header')
@@ -22,7 +22,7 @@
 					<div class="col-lg-6">
 
 						<div class="form-group">
-							<label class="control-label col-sm-2">{{ trans('adminlte_lang::message.name') }}*</label>
+							<label class="control-label col-sm-2">{{ trans('a.nombre') }}*</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" value="{{ old('nombre')}}" name="nombre">
 
@@ -32,15 +32,14 @@
 							@endif
 						</div>
 						<div class="form-group">
-							<label class="control-label col-sm-2">{{trans('adminlte_lang::message.reference')}}</label>
+							<label class="control-label col-sm-2">{{trans('a.referencia')}}</label>
 							<div class="col-sm-10">
 								<input type="text" class="form-control" value="{{ old('referencia')}}" name="referencia">
-
 							</div>
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-sm-2">{{trans('adminlte_lang::message.category')}}</label>
+							<label class="control-label col-sm-2">{{trans('a.categoria')}}</label>
 							<div class="col-sm-10">
 								<select  class="form-control" value="{{ old('categoria')}}" name="categoria">
 									<option value="0">Sin categoria</option>
@@ -53,7 +52,7 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2">{{ trans('adminlte_lang::message.archive')}}s</label>
+							<label class="col-sm-2">{{ trans('a.archivo')}}s</label>
 							<div class="col-lg-12">
 								<input id="archivo" name="archivo" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
 							</div>
@@ -62,7 +61,7 @@
 
 					<div class="col-lg-6">
 						<div class="form-group">
-							<label class="control-label col-sm-3">{{ trans('adminlte_lang::message.buy_price')}}* </label>
+							<label class="control-label col-sm-3">{{ trans('a.preciodecompra')}}* </label>
 							<div class="col-sm-9">
 								<div class="input-group">
 									<div class="input-group-addon">
@@ -77,7 +76,7 @@
 						</div>
 
 						<div class="form-group">
-							<label class="control-label col-sm-2">{{ trans('adminlte_lang::message.description')}}</label>
+							<label class="control-label col-sm-2">{{ trans('a.descripcion')}}</label>
 							<div class="col-sm-10">
 								<textarea class="form-control" rows="3" name="nota">{{ old('nota')}}</textarea>
 							</div>
@@ -88,7 +87,7 @@
 						</div>
 						<div class="form-group">
 							<div class="checkbox">
-								<label><input type="checkbox" class="checkbox icheck" value="">{{ trans('adminlte_lang::message.inventory')}}</label>
+								<label><input type="checkbox" class="checkbox icheck" value="">{{ trans('adminlte_lang::message.inventariable')}}</label>
 							</div>
 							
 						</div>
