@@ -12,8 +12,38 @@
 @section('main-content')
 
 <div class="row">
-
 	<div class="col-lg-12">
+	@if($mensaje[0]>0)
+	<div class="info-box bg-green" >
+            <span class="info-box-icon "><i class="fa fa-thumbs-o-up" style="margin-top: 20;"></i> </span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">Exitos</span>
+              <span class="info-box-number">{{$mensaje[1]}}</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+@endif
+
+
+<div class="box box-success">
+            <div class="box-header with-border">
+              <h3 class="box-title">Removable</h3>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              The body of the box
+            </div>
+            <!-- /.box-body -->
+          </div>
+
+
+
 		<div class="panel panel-primary">
 			<form role="form" class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ url('material/nuevo/registrar') }}">
 				{{ csrf_field() }}
@@ -42,13 +72,13 @@
 							<label class="control-label col-sm-2">{{trans('a.categoria')}}</label>
 							<div class="col-sm-10">
 								<select  class="form-control" value="{{ old('categoria')}}" name="categoria">
-									<option value="0">Sin categoria</option>
+									<option value="{{'0'}}">Sin categoria</option>
 						@foreach ($categorias as $categoria)
 									<option value="{{$categoria->id_categoria}}">{{$categoria->nombre}} - {{$categoria->referencia}}</option>
 						@endforeach
-								</select>	
+								</select>
 
-								
+
 							</div>
 						</div>
 						<div class="form-group">
@@ -70,9 +100,11 @@
 									<input type="text" onkeyup="format(this)" onchange="format(this)" class="form-control" value="{{old('precio') }}" name="precio">
 								</div>
 							</div>
+							<p style="color:red;margin:0px">Sera su valor en caso de no ser inventariable</p>
+
 							@if ($errors->has('precio') )
 							<p style="color:red;margin:0px">{{ $errors->first('precio') }}</p>
-							@endif					
+							@endif
 						</div>
 
 						<div class="form-group">
@@ -87,9 +119,9 @@
 						</div>
 						<div class="form-group">
 							<div class="checkbox">
-								<label><input type="checkbox" class="checkbox icheck" value="">{{ trans('adminlte_lang::message.inventariable')}}</label>
+								<label><input type="checkbox" class="checkbox icheck" value="">{{ trans('a.inventariable')}}</label>
 							</div>
-							
+
 						</div>
 					</div>
 					<div class="col-lg-12">
@@ -128,7 +160,7 @@
   </optgroup>
 </select>
 
-		</div>	
+		</div>
 	</div>
 </div>
 
@@ -142,7 +174,7 @@
 					</div>
 				<input type="text" onkeyup="format(this)" onchange="format(this)" class="form-control" value="{{old('valor_unidad') }}" name="valor_unidad">
 				</div>
-			</div>	
+			</div>
 	</div>
 	@if ($errors->has('valor_unidad') )
 		<p style="color:red;margin:0px">{{ $errors->first('valor_unidad') }}</p>
@@ -151,7 +183,7 @@
 </div>
 
 	<div id="input1" class="clonedInput" >
-	
+
 		<div class="col-sm-6">
 			<div class="form-group">
 				<label class="col-sm-4 control-label">Bodega</label>
@@ -160,13 +192,13 @@
 							<option>1</option>
 							<option>1</option>
 							<option>1</option>
-							<option>1</option>							
+							<option>1</option>
 						</select>
 					</div>
 			</div>
 		</div>
 
-	
+
 		<div class="col-sm-6">
 			<div class="form-group">
 				<label class="col-sm-4 control-label">Cantidad inicial</label>
@@ -175,7 +207,7 @@
 					</div>
 			</div>
 		</div>
-	
+
 
 	</div>
 						@if ($errors->has('cantidad') )
@@ -191,12 +223,12 @@
 
 							</div>
 						</div>
-					</div>				
+					</div>
 	<div class="col-lg-12">
 		<div class="btn-group" style="width: 100%">
-			<a href="{{url('contactos')}}" class="btn btn-link" style="color: red;width: 24%">{{ trans('adminlte_lang::message.cancel')}}</a>	
-			<button type="submit" class="btn btn-info" name="crearotro" value="1" style="width: 52%">{{ trans('adminlte_lang::message.save')}} {{ trans('adminlte_lang::message.and')}} {{ trans('adminlte_lang::message.create_other')}}</button>	
-			<button type="submit" class="btn btn-success" style="width: 24%">{{ trans('adminlte_lang::message.save')}}</button>	
+			<a href="{{url('contactos')}}" class="btn btn-link" style="color: red;width: 24%">{{ trans('adminlte_lang::message.cancel')}}</a>
+			<button type="submit" class="btn btn-info" name="crearotro" value="1" style="width: 52%">{{ trans('adminlte_lang::message.save')}} {{ trans('adminlte_lang::message.and')}} {{ trans('adminlte_lang::message.create_other')}}</button>
+			<button type="submit" class="btn btn-success" style="width: 24%">{{ trans('adminlte_lang::message.save')}}</button>
 		</div>
 	</div>
 
@@ -205,7 +237,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 
 
 </div>

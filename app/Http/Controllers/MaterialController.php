@@ -36,18 +36,46 @@ class MaterialController extends Controller
     {
     if(tienepermisos([6])){
     $categorias=DB::table('categorias')->select('nombre','id_categoria','referencia')->where('id_empresa',Auth::user()->id_empresa)->orderBy('nombre','ASC')->get();
-    return View::make("materiales.nuevo")->with(array('categorias'=>$categorias));
+    $mensaje[0]=1;
+    $mensaje[1]='probando';
+ //   $mensaje[0]=1;
+
+    return View::make("materiales.nuevo")->with(array('categorias'=>$categorias,'mensaje'=>$mensaje));
     }else{
         return view('errors.401');
     }
     }
     public function nuevomaterial(Request $request)
     {
-        $precio=intval(str_replace($request['precio'],'.',''));
+        $request['precio']=intval(str_replace('.','',$request['precio']));
         $this->validate($request, [
             'nombre' => 'required',
-    ]);
-         $request['precio']=intval($precio);
+            'precio' => 'numeric',
+            'categoria'=>'required',
+        ]);
+        if(!$request->has('descripcion')){
+            $request->descripcion="";
+           }
+           if(!$request->has('referencia')){
+            $request->referencia="";
+           }
+           if(!$request->has('precio')){
+            $request->precio=0;
+           }
+           $idmaterial = DB::table('materiales')->where('id_empresa',Auth::user()->id_empresa)->max('id_material');
+
+/*            DB::table('materiales')->insert(
+    [
+    'id_empresa' => Auth::user()->id_empresa,
+    'id_material' => $idmaterial+1, 
+    'nombre' => $request->nombre,
+    'referencia' => $request->referencia,
+    'descripcion'=> $request->descripcion        
+    ]
+); */
+if($request->has('crearotro')){
+    return back()->with(array('mensaje'=>'material creado existosamente'));
+}
         return var_dump($request->all());
     }
     public function categorias()
