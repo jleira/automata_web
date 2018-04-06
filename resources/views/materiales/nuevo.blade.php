@@ -13,34 +13,12 @@
 
 <div class="row">
 	<div class="col-lg-12">
-	@if($mensaje[0]>0)
-	<div class="info-box bg-green" >
-            <span class="info-box-icon "><i class="fa fa-thumbs-o-up" style="margin-top: 20;"></i> </span>
-
-            <div class="info-box-content">
-              <span class="info-box-text">Exitos</span>
-              <span class="info-box-number">{{$mensaje[1]}}</span>
-            </div>
-            <!-- /.info-box-content -->
-          </div>
-@endif
-
-
-<div class="box box-success">
-            <div class="box-header with-border">
-              <h3 class="box-title">Removable</h3>
-
-              <div class="box-tools pull-right">
-                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-              </div>
-              <!-- /.box-tools -->
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              The body of the box
-            </div>
-            <!-- /.box-body -->
-          </div>
+	@if($mensaje[0]==1)
+	<div class="alert alert-success alert-dismissible">
+    	<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    	<strong>{{trans('a.hecho')}}</strong> {{trans('a.materialguardado')}}.<strong><a href="{{url($mensaje[1])}}" >{{trans('a.aqui')}}</a></strong>
+  	</div>
+	@endif
 
 
 
@@ -81,12 +59,12 @@
 
 							</div>
 						</div>
-						<div class="form-group">
+						<!-- <div class="form-group">
 							<label class="col-sm-2">{{ trans('a.archivo')}}s</label>
 							<div class="col-lg-12">
 								<input id="archivo" name="archivo" type="file" class="file" multiple data-show-upload="false" data-show-caption="true">
 							</div>
-						</div>
+						</div> -->
 					</div>
 
 					<div class="col-lg-6">

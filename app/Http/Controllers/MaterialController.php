@@ -36,7 +36,7 @@ class MaterialController extends Controller
     {
     if(tienepermisos([6])){
     $categorias=DB::table('categorias')->select('nombre','id_categoria','referencia')->where('id_empresa',Auth::user()->id_empresa)->orderBy('nombre','ASC')->get();
-    $mensaje[0]=1;
+    $mensaje[0]=0;
     $mensaje[1]='probando';
  //   $mensaje[0]=1;
 
@@ -64,17 +64,22 @@ class MaterialController extends Controller
            }
            $idmaterial = DB::table('materiales')->where('id_empresa',Auth::user()->id_empresa)->max('id_material');
 
-/*            DB::table('materiales')->insert(
+            DB::table('materiales')->insert(
     [
     'id_empresa' => Auth::user()->id_empresa,
     'id_material' => $idmaterial+1, 
     'nombre' => $request->nombre,
     'referencia' => $request->referencia,
-    'descripcion'=> $request->descripcion        
+    'descripcion'=> $request->descripcion,
+    'id_categoria'=>$request->categoria,
+    'precio'=>$request->precio
     ]
-); */
+); 
 if($request->has('crearotro')){
-    return back()->with(array('mensaje'=>'material creado existosamente'));
+    $mensaje[0]=1;
+    $mensaje[1]='/material/'.$idmaterial;
+    return back()->with(array('mensaje'=>$mensaje));
+
 }
         return var_dump($request->all());
     }

@@ -28,7 +28,16 @@ function lista($lista,$id,$caso){
 	}
 return $item=DB::table('app_lista')->where('id_tipo_lista',$lista)->where('id_item',$id)->value($value);
 }
+function categorianombre($idcategoria)
+{
+	if($idcategoria==0){
+		return trans('a.sincategoria');
+	}else{
+		return DB::table('categorias')->select('nombre')->
+where('id_categoria',$idcategoria)->where('id_empresa', Auth::user()->id_empresa)->value('nombre');
+	}
 
+}
 function tienepermisos($permisos)
 {
 	$perfiles=array_map('intval', explode(',', Auth::user()->perfiles));

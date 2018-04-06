@@ -29,7 +29,7 @@
 							<th>{{trans('a.nombre')}}</th>
 							<th>{{trans('a.referencia')}}</th>
 							<th>{{trans('a.precio')}} </th>
-							<th>{{trans('a.descripcion')}}</th>
+							<th>{{trans('a.categoria')}}</th>
 							<th>{{trans('a.accion')}}</th>
 						</tr>
 					</thead>
@@ -39,7 +39,7 @@
 							<td>{{$material->nombre}}</td>
 							<td>{{$material->referencia}}</td>
 							<td>{{$material->precio}}</td>
-							<td>{{$material->descripcion}}</td>
+							<td>{{categorianombre($material->id_categoria)}}</td>
 							<td style="text-align: center;" >
 								<a style="color: cyan" href="{{url('material/perfil'.'/'.$material->id_material)}}"><i class='fa fa-eye' style="margin: 0% 5%;"></i></a>
 								<a style="color: green" href="{{url('material/perfil'.'/'.$material->id_material.'/editar')}}"><i class='fa fa-edit' style="margin: 0% 5%;"></i></a>	
