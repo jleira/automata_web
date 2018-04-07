@@ -153,5 +153,13 @@ if($request->has('crearotro')){
     );
     return back();
     }
-
+    public function detallesmaterial($id)
+    {
+        if(tienepermisos([7])){
+        $detalles=DB::table('materiales')->where('id',$id)->where('id_empresa',Auth::user()->id_empresa)->first();
+        return View::make("materiales.detalles")->with(array('items'=>$detalles));
+        }else{
+            return view('errors.401');
+        }
+    }
 }

@@ -72,6 +72,7 @@ Route::post('material/nuevo/registrar', 'MaterialController@nuevomaterial');
 Route::get('material/nuevacategoria', 'MaterialController@categorias');
 Route::post('material/nuevacategoria', 'MaterialController@nuevacategoria');
 Route::post('material/editarcategoria', 'MaterialController@editarcategoria');
+Route::get('material/{id}', 'MaterialController@detallesmaterial');
 
 
 
