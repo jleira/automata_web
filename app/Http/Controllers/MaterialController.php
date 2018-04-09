@@ -162,4 +162,29 @@ if($request->has('crearotro')){
             return view('errors.401');
         }
     }
+    public function editarmaterial($id)
+    {
+        if(tienepermisos([7])){
+        $categorias=DB::table('categorias')->select('nombre','id_categoria','referencia')->where('id_empresa',Auth::user()->id_empresa)->orderBy('nombre','ASC')->get();
+        $detalles=DB::table('materiales')->where('id',$id)->where('id_empresa',Auth::user()->id_empresa)->first();
+        return View::make("materiales.editar")->with(array('items'=>$detalles,'categorias'=>$categorias));
+        }else{
+            return view('errors.401');
+        }
+    }
+
+    public function editarmaterialpost(Request $request,$id)
+    {
+        if(tienepermisos([7])){
+            $request['precio']=intval(str_replace('.','',$request['precio']));
+            $this->validate($request, [
+                'nombre' => 'required',
+                'precio' => 'numeric',
+                'categoria'=>'required',
+            ]);
+            return $request->all();
+        }else{
+            return view('errors.401');
+        }
+    }
 }

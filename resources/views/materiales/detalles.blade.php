@@ -42,6 +42,7 @@ detalles de {{$items->nombre}}
 				</table>
 			</div>
 		</div>
+		<a href="{{url('material/editar/'.$items->id_material)}}" class="btn btn-link" >{{ trans('a.editar')}}</a>
 	</div>
 	<div class="col-lg-6">
 		<div class="panel panel-primary">

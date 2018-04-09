@@ -42,7 +42,7 @@
 							<td>{{categorianombre($material->id_categoria)}}</td>
 							<td style="text-align: center;" >
 								<a style="color: cyan" href="{{url('material'.'/'.$material->id_material)}}"><i class='fa fa-eye' style="margin: 0% 5%;"></i></a>
-								<a style="color: green" href="{{url('material/perfil'.'/'.$material->id_material.'/editar')}}"><i class='fa fa-edit' style="margin: 0% 5%;"></i></a>	
+								<a style="color: green" href="{{url('material/editar'.'/'.$material->id_material)}}"><i class='fa fa-edit' style="margin: 0% 5%;"></i></a>	
 								<a style="color: red" href="{{url('editarmaterial/'.$material->id_material)}}"><i class='fa fa-trash' style="margin: 0% 5%;"></i></a>
 							</td>
 						</tr>

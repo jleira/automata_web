@@ -47,3 +47,10 @@ function tienepermisos($permisos)
 	}	
 }
 }
+function truefalse($value){
+	if($value>0){
+		return true;
+	}else{
+		return false;
+	}
+}
