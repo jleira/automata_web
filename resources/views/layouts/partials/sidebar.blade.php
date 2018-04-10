@@ -20,7 +20,6 @@
         <!-- Sidebar Menu -->
         <ul class="sidebar-menu">
             <li class="header">{{ trans('adminlte_lang::message.header') }}</li>
-            <!-- Optionally, you can add icons to the links -->
             <li class="{{active('home')}}"><a href="{{ url('home') }}"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
             <li class="{{active('contacto')}}" class="treeview">
                 <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.contact') }}s</span> <i class="fa fa-angle-left pull-right"></i></a>
@@ -52,8 +51,7 @@
                 <ul class="treeview-menu">
                 <li class="{{active('materiales')}}"><a href="{{url('materiales')}}">{{ trans('a.todos') }}</a></li>
                 <li class="{{active('material/nuevo')}}"><a href="{{url('material/nuevo')}}">{{ trans('a.nuevo') }}</a></li>
-                <li class="{{active('material/nuevacategoria')}}"><a href="{{url('material/nuevacategoria')}}">{{ trans('a.categoria') }}</a></li>
-                
+                <li class="{{active('material/nuevacategoria')}}"><a href="{{url('material/nuevacategoria')}}">{{ trans('a.categoria') }}</a></li>                
                 </ul>
             </li>
 

@@ -156,7 +156,7 @@ if($request->has('crearotro')){
     public function detallesmaterial($id)
     {
         if(tienepermisos([7])){
-        $detalles=DB::table('materiales')->where('id',$id)->where('id_empresa',Auth::user()->id_empresa)->first();
+        $detalles=DB::table('materiales')->where('id_material',$id)->where('id_empresa',Auth::user()->id_empresa)->first();
         return View::make("materiales.detalles")->with(array('items'=>$detalles));
         }else{
             return view('errors.401');
@@ -166,7 +166,7 @@ if($request->has('crearotro')){
     {
         if(tienepermisos([7])){
         $categorias=DB::table('categorias')->select('nombre','id_categoria','referencia')->where('id_empresa',Auth::user()->id_empresa)->orderBy('nombre','ASC')->get();
-        $detalles=DB::table('materiales')->where('id',$id)->where('id_empresa',Auth::user()->id_empresa)->first();
+        $detalles=DB::table('materiales')->where('id_material',$id)->where('id_empresa',Auth::user()->id_empresa)->first();
         return View::make("materiales.editar")->with(array('items'=>$detalles,'categorias'=>$categorias));
         }else{
             return view('errors.401');
@@ -182,7 +182,22 @@ if($request->has('crearotro')){
                 'precio' => 'numeric',
                 'categoria'=>'required',
             ]);
-            return $request->all();
+            if(!$request->has('descripcion')){
+                $request->descripcion="";
+               }
+               if(!$request->has('referencia')){
+                $request->referencia="";
+               }
+        
+            DB::table('materiales')->where('id_material', $id)->where('id_empresa', Auth::user()->id_empresa)
+            ->update([
+            'id_empresa' => Auth::user()->id_empresa,
+            'nombre' => $request->nombre,
+            'referencia' => $request->referencia,
+            'descripcion'=> $request->descripcion,
+            'id_categoria'=>$request->categoria,
+            'precio'=>$request->precio]);
+            return redirect('material/'.$id);
         }else{
             return view('errors.401');
         }

@@ -95,6 +95,18 @@ class ProductosController extends Controller
     ['nombre' => $request->nombre,'perfil' => $request->perfil, 'nit' => $request->nit,'direccion' => $request->direccion, 'ciudad'=> $request->ciudad,'telefono'=> $request->telefono_1,'telefono_2' => $request->telefono_2,'fax'=> $request->fax,'celular'=> $request->celular,'correo'=> $request->mail,'nota'=> $request->nota,'descuento'=> $request->descuento,'credito'=> $request->credito,'termino'=> $request->termino_de_pago]
 );
   return redirect('contacto/perfil'.'/'.$id);	
-	}	
+    }	
+    
+/*     productos 
+tienen un nombre
+un id
+una categoria
+componenetes si asi lo implican
+unidades disponibles(este campo puede cambiar y se debe tener un historial de este) por lo que debe estar en los inventarios
+promocion inventarianle
+y rango de promocion inventariable
+precio de venta en los inventariables
+descripcion
+galeria de fotos */
 
 }

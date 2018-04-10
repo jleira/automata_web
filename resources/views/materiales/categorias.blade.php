@@ -51,9 +51,9 @@
 							<td>{{$item->referencia}}</td>
 							<td>{{$item->descripcion}}</td>
 							<td style="text-align: center;">
-								<a style="color: green" href="javascript:editar('{{$item->id_categoria}}','{{$item->nombre}}','{{$item->referencia}}','{{$item->descripcion}}');"><i class='fa fa-edit' style="margin: 0% 5%;"></i></a>	
-								<a style="color: red" href="{{url('editarmaterial/'.$item->id_categoria)}}"><i class='fa fa-trash' style="margin: 0% 5%;"></i></a>
-							</td>
+								<a style="color: green" title="{{trans('a.editar')}}" href="javascript:editar('{{$item->id_categoria}}','{{$item->nombre}}','{{$item->referencia}}','{{$item->descripcion}}');"><i class='fa fa-edit' style="margin: 0% 5%;"></i></a>	
+<!-- 								<a style="color: red" href="{{url('editarmaterial/'.$item->id_categoria)}}"><i class='fa fa-trash' style="margin: 0% 5%;"></i></a>
+ -->							</td>
 						</tr>
 
 						@endforeach

@@ -5,9 +5,6 @@
 
 <div class="row">
 	<div class="col-lg-12">
-
-
-
 		<div class="panel panel-primary">
 			<form role="form" class="form-horizontal" enctype="multipart/form-data" method="POST" action="{{ url('material/editar/'.$items->id_material) }}">
 				{{ csrf_field() }}
